@@ -12,13 +12,7 @@ BATCH_SIZE = 128
 WORD_MAX_LEN = 100
 CHAR_MAX_LEN = 1014
 
-if args.model == "char_cnn":
-    test_x, test_y, alphabet_size = build_char_dataset("test", "char_cnn", CHAR_MAX_LEN)
-elif args.model == "vd_cnn":
-    test_x, test_y, alphabet_size = build_char_dataset("test", "vdcnn", CHAR_MAX_LEN)
-else:
-    word_dict = build_word_dict()
-    test_x, test_y = build_word_dataset("test", word_dict, WORD_MAX_LEN)
+test_x, test_y, alphabet_size = build_char_dataset("test", CHAR_MAX_LEN)
 
 checkpoint_file = tf.train.latest_checkpoint(args.model)
 graph = tf.Graph()
