@@ -8,8 +8,7 @@ NUM_CLASS = 12
 BATCH_SIZE = 128
 WORD_MAX_LEN = 100
 CHAR_MAX_LEN = 256
-# x, y, alphabet_size, le = build_char_dataset(path_train, CHAR_MAX_LEN)
-test_x, test_y, alphabet_size, le = build_char_dataset(path_train, CHAR_MAX_LEN)
+test_x, test_y, alphabet_size = build_char_dataset(path_train, CHAR_MAX_LEN)
 checkpoint_file = tf.train.latest_checkpoint("model")
 graph = tf.Graph()
 with graph.as_default():

@@ -1,4 +1,3 @@
-import argparse
 import tensorflow as tf
 from data_utils import *
 from sklearn.model_selection import train_test_split
@@ -13,7 +12,7 @@ CHAR_MAX_LEN = 256
 
 print("Building dataset...")
 path_train = sys.argv[1]
-x, y, alphabet_size, le = build_char_dataset(path_train, CHAR_MAX_LEN)
+x, y, alphabet_size= build_char_dataset(path_train, CHAR_MAX_LEN)
 print(len(x))
 train_x, valid_x, train_y, valid_y = train_test_split(x, y, test_size=0.15)
 

@@ -1,3 +1,5 @@
+import os
+
 import wget
 import tarfile
 import pandas as pd
@@ -35,9 +37,12 @@ def build_char_dataset(path_file, document_max_len):
     #     # print(X[i])
     #     print(y[i])
     le = LabelEncoder()
-    le.fit(labels)
+    if os.path.isfile("classes.npy"):
+        le.classes_ = np.load("classes.npy")
+    else:
+        le.fit(labels)
+        np.save('classes.npy', le.classes_)
     y = le.fit_transform(y)
-
     char_dict = dict()
     char_dict["<pad>"] = 0
     char_dict["<unk>"] = 1
@@ -53,7 +58,7 @@ def build_char_dataset(path_file, document_max_len):
     # for i in range(0,5):
     #     print(x[i])
     #     print(y[i])
-    return x, y, alphabet_size, le
+    return x, y, alphabet_size
 
 
 def batch_iter(inputs, outputs, batch_size, num_epochs):
