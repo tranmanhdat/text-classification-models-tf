@@ -12,7 +12,7 @@ def read_text(path_file):
         for line in f_read:
             elements = line.split("\t")
             if len(elements[1])>20:
-                X.append(elements[1].replace("_", " "))
+                X.append(elements[1])
                 len_X.append(len(elements[1]))
                 y.append(elements[0])
                 if elements[0] not in labels:
