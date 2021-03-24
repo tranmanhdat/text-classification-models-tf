@@ -7,7 +7,7 @@ class VDCNN(object):
         self.filter_sizes = [3, 3, 3, 3, 3]
         self.num_filters = [64, 64, 128, 256, 512]
         self.num_blocks = [2, 2, 2, 2]
-        self.learning_rate = 1e-4
+        self.learning_rate = 1e-3
         self.cnn_initializer = tf.keras.initializers.he_normal()
         self.fc_initializer = tf.truncated_normal_initializer(stddev=0.05)
 
