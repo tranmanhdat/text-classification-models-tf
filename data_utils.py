@@ -11,7 +11,7 @@ def read_text(path_file):
     with open(path_file, "r", encoding="UTF-8") as f_read:
         for line in f_read:
             elements = line.split("\t")
-            if len(elements[1])>20 or len(elements[1])>300:
+            if 20 < len(elements[1]) < 300:
                 X.append(elements[1].rstrip())
                 len_X.append(len(elements[1]))
                 y.append(elements[0])
