@@ -8,8 +8,8 @@ import sys
 
 NUM_CLASS = 12
 BATCH_SIZE = 64
-NUM_EPOCHS = 10
-CHAR_MAX_LEN = 200
+NUM_EPOCHS = 50
+CHAR_MAX_LEN = 256
 
 print("Building dataset...")
 path_train = sys.argv[1]
@@ -50,7 +50,6 @@ with tf.Session() as sess:
                 sum_accuracy += accuracy
                 cnt += 1
             valid_accuracy = sum_accuracy / cnt
-
             print("\nValidation Accuracy = {1}\n".format(step // num_batches_per_epoch, sum_accuracy / cnt))
 
             # Save model

@@ -3,11 +3,11 @@ import tensorflow as tf
 
 class VDCNN(object):
     def __init__(self, alphabet_size, document_max_len, num_class):
-        self.embedding_size = 16
+        self.embedding_size = 32
         self.filter_sizes = [3, 3, 3, 3, 3]
         self.num_filters = [64, 64, 128, 256, 512]
         self.num_blocks = [2, 2, 2, 2]
-        self.learning_rate = 1e-3
+        self.learning_rate = 1e-4
         self.cnn_initializer = tf.keras.initializers.he_normal()
         self.fc_initializer = tf.truncated_normal_initializer(stddev=0.05)
 
