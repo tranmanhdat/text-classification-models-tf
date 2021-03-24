@@ -1,11 +1,12 @@
 import os
-
+from sklearn.feature_extraction.text import TfidfVectorizer
 import wget
 import tarfile
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import random
+import pickle
 
 def read_text(path_file):
     X, y, labels= [], [], []
@@ -60,6 +61,24 @@ def build_char_dataset(path_file, document_max_len):
     #     print(y[i])
     return x, y, alphabet_size
 
+def build_dataset(path_file):
+    X, y, labels = read_text(path_file)
+    le = LabelEncoder()
+    if os.path.isfile("classes.npy"):
+        le.classes_ = np.load("classes.npy")
+    else:
+        le.fit(labels)
+        np.save('classes.npy', le.classes_)
+    y = le.fit_transform(y)
+    if os.path.isfile("tfidf.pickle"):
+        tf = pickle.load(open("tfidf.pickle", "rb"))
+    else:
+        tf = TfidfVectorizer(min_df=0, max_df=1, max_features=None,
+                             sublinear_tf=True)
+        tf.fit(X)
+        pickle.dump(tf, open("tfidf.pickle", "wb"))
+    x = tf.transform(X)
+    return x, y, len(tf.get_feature_names())
 
 def batch_iter(inputs, outputs, batch_size, num_epochs):
     inputs = np.array(inputs)
