@@ -7,8 +7,8 @@ import sys
 
 
 NUM_CLASS = 12
-BATCH_SIZE = 128
-NUM_EPOCHS = 20
+BATCH_SIZE = 64
+NUM_EPOCHS = 10
 CHAR_MAX_LEN = 256
 
 print("Building dataset...")
