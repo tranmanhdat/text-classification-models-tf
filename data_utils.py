@@ -12,7 +12,7 @@ def read_text(path_file):
         for line in f_read:
             elements = line.split("\t")
             if len(elements[1])>20:
-                X.append(elements[1])
+                X.append(elements[1].rstrip())
                 len_X.append(len(elements[1]))
                 y.append(elements[0])
                 if elements[0] not in labels:
@@ -29,8 +29,11 @@ def build_char_dataset(path_file, document_max_len):
     alphabet = 'ngoài_ra ,bêcũsẽhỗtợvệxâydựươìđạkáọpòuếlĩảmậổộ.eíẫờwf1ôỉầấụặóịởữềăốq3ớẩứửồắú5ýằ92ẵ4õ6ễừ07ùẻẹể​+-ủjãzỹ8ỏéẳè;ỷỳ’ỡ!?&:ỵ\'#–\>|[]̃‬<，{}'
     # alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:’'\"/|_#$%ˆ&*˜‘+=<>()[]{} "
     alphabet = ''.join(sorted(alphabet))
+    # print(alphabet)
     X, y, labels = read_text(path_file)
-    
+    # for i in range(0,5):
+    #     # print(X[i])
+    #     print(y[i])
     le = LabelEncoder()
     le.fit(labels)
     y = le.fit_transform(y)
@@ -47,8 +50,9 @@ def build_char_dataset(path_file, document_max_len):
     x = list(
         map(lambda d: d + (document_max_len - len(d)) * [char_dict["<pad>"]],
             x))
-
-
+    # for i in range(0,5):
+    #     print(x[i])
+    #     print(y[i])
     return x, y, alphabet_size, le
 
 

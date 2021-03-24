@@ -7,9 +7,9 @@ import sys
 
 
 NUM_CLASS = 12
-BATCH_SIZE = 64
+BATCH_SIZE = 128
 NUM_EPOCHS = 10
-CHAR_MAX_LEN = 512
+CHAR_MAX_LEN = 256
 
 print("Building dataset...")
 path_train = sys.argv[1]
