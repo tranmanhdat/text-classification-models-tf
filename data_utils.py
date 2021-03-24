@@ -3,7 +3,7 @@ import tarfile
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
-
+import random
 
 def read_text(path_file):
     X, y, labels= [], [], []
@@ -20,11 +20,15 @@ def read_text(path_file):
     print("{:.2f}".format(sum(len_X)/len(len_X)))
     print("{}".format(max(len_X)))
     print("{}".format(min(len_X)))
+    c = list(zip(X, y))
+    random.shuffle(c)
+    X, y = zip(*c)
     return X, y, labels
 
 def build_char_dataset(path_file, document_max_len):
-    alphabet = "ngoài_ra ,bêcũsẽhỗtợvệxâydựươìđạkáọpòuếlĩảmậổộ.eíẫờwf1ôỉầấụặóịởữềăốq3ớẩứửồắú5ýằ92ẵ4õ6ễừ07ùẻẹể​+-ủjãzỹ8ỏéẳè;ỷỳ’ỡ!?&:ỵ'#–\>|[]̃‬<，{}"
+    alphabet = 'ngoài_ra ,bêcũsẽhỗtợvệxâydựươìđạkáọpòuếlĩảmậổộ.eíẫờwf1ôỉầấụặóịởữềăốq3ớẩứửồắú5ýằ92ẵ4õ6ễừ07ùẻẹể​+-ủjãzỹ8ỏéẳè;ỷỳ’ỡ!?&:ỵ\'#–\>|[]̃‬<，{}'
     # alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:’'\"/|_#$%ˆ&*˜‘+=<>()[]{} "
+    alphabet = ''.join(sorted(alphabet))
     X, y, labels = read_text(path_file)
     
     le = LabelEncoder()
