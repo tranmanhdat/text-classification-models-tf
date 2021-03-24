@@ -14,7 +14,7 @@ CHAR_MAX_LEN = 512
 print("Building dataset...")
 path_train = sys.argv[1]
 x, y, alphabet_size, le = build_char_dataset(path_train, CHAR_MAX_LEN)
-train_x, valid_x, train_y, valid_y = train_test_split(x, y, test_size=0.15)
+train_x, valid_x, train_y, valid_y = train_test_split(x, y, test_size=0.3)
 
 with tf.Session() as sess:
     model = VDCNN(alphabet_size, CHAR_MAX_LEN, NUM_CLASS)
