@@ -26,7 +26,7 @@ def read_text(path_file):
     return X, y, labels
 
 def build_char_dataset(path_file, document_max_len):
-    alphabet = 'ngoài_ra ,bêcũsẽhỗtợvệxâydựươìđạkáọpòuếlĩảmậổộ.eíẫờwf1ôỉầấụặóịởữềăốq3ớẩứửồắú5ýằ92ẵ4õ6ễừ07ùẻẹể​+-ủjãzỹ8ỏéẳè;ỷỳ’ỡ!?&:ỵ\'#–\>|[]̃‬<，{}'
+    alphabet = "ngoàirabêcũsẽhỗtợvệxâydựươìđạkáọpòuếlĩảmậổộeíẫờwf1ôỉầấụặóịởữềăốq3ớẩứửồắú5ýằ92ẵ4õ6ễừ07ùẻẹể​ủjãzỹ8ỏéẳèỷỳỡỵ-,;.!?:’'\"/|_#$%ˆ&*˜‘+=<>()[]{} "
     # alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:’'\"/|_#$%ˆ&*˜‘+=<>()[]{} "
     alphabet = ''.join(sorted(alphabet))
     # print(alphabet)
