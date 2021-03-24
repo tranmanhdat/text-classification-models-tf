@@ -11,11 +11,12 @@ def read_text(path_file):
     with open(path_file, "r", encoding="UTF-8") as f_read:
         for line in f_read:
             elements = line.split("\t")
-            X.append(elements[1].replace("_", " "))
-            len_X.append(len(elements[1]))
-            y.append(elements[0])
-            if elements[0] not in labels:
-                labels.append(elements[0])
+            if len(elements[1])>20:
+                X.append(elements[1].replace("_", " "))
+                len_X.append(len(elements[1]))
+                y.append(elements[0])
+                if elements[0] not in labels:
+                    labels.append(elements[0])
     print("{:.2f}".format(sum(len_X)/len(len_X)))
     print("{}".format(max(len_X)))
     print("{}".format(min(len_X)))
