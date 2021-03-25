@@ -78,7 +78,7 @@ def build_dataset(path_file):
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
     x = tf.transform(X)
-    x = x.toarray()
+    x = x.todense()
     return x, y, len(tf.get_feature_names())
 
 def batch_iter(inputs, outputs, batch_size, num_epochs):
