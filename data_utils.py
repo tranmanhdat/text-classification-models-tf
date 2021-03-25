@@ -57,8 +57,9 @@ def build_char_dataset(path_file, document_max_len):
     x = list(
         map(lambda d: d + (document_max_len - len(d)) * [char_dict["<pad>"]],
             x))
-    # for i in range(0,5):
-    #     print(x[i])
+    for i in range(0,5):
+        print(len(x[i]))
+        print(x[i])
     #     print(y[i])
     return x, y, alphabet_size
 
