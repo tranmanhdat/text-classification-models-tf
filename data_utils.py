@@ -78,8 +78,9 @@ def build_dataset(path_file):
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
     tmp = tf.transform(X)
-    tmp = tmp.tocoo()
-    x= np.column_stack((tmp.col, tmp.data))
+    # tmp = tmp.tocoo()/
+    # x= np.column_stack((tmp.col, tmp.data))
+    x = tmp.toarray()
     print(type(x))
     print(x.shape)
     return x, y, len(tf.get_feature_names())
