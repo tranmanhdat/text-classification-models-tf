@@ -73,13 +73,13 @@ def build_dataset(path_file):
     if os.path.isfile("tfidf.pickle"):
         tf = pickle.load(open("tfidf.pickle", "rb"))
     else:
-        tf = TfidfVectorizer(min_df=0, max_df=1, max_features=5000,
+        tf = TfidfVectorizer(min_df=0, max_df=1, max_features=None,
                              sublinear_tf=True)
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
     x = tf.transform(X)
     print("done transform")
-    x = x.todense()
+    x = np.asarray(x)
     return x, y, len(tf.get_feature_names())
 
 def batch_iter(inputs, outputs, batch_size, num_epochs):
