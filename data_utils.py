@@ -74,7 +74,7 @@ def build_dataset(path_file):
     if os.path.isfile("tfidf.pickle"):
         tf = pickle.load(open("tfidf.pickle", "rb"))
     else:
-        tf = TfidfVectorizer(min_df=0, max_df=1, max_features=300,
+        tf = TfidfVectorizer(min_df=0, max_df=1, max_features=100,
                              sublinear_tf=True)
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
