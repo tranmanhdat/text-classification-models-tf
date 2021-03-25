@@ -77,10 +77,14 @@ def build_dataset(path_file):
                              sublinear_tf=True)
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
-    x = tf.transform(X)
+    x = []
+    for tmp in X:
+        tmp  = tf.transform([tmp])
+        tmp = tmp.todense()
+        print(len(tmp))
+        exit(0)
     print("done transform")
     x = np.asarray(x)
-    print(len(x))
     return x, y, len(tf.get_feature_names())
 
 def batch_iter(inputs, outputs, batch_size, num_epochs):
