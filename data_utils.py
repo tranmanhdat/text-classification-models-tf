@@ -81,7 +81,7 @@ def build_dataset(path_file):
     for tmp in X:
         tmp  = tf.transform([tmp])
         tmp = tmp.todense()
-        print(len(tmp[0]))
+        print(tmp)
         exit(0)
     print("done transform")
     x = np.asarray(x)
