@@ -82,6 +82,7 @@ def build_dataset(path_file):
         tmp  = tf.transform([tmp])
         tmp = tmp.toarray().tolist()
         print(tmp)
+        print(tmp[0])
         exit(0)
     print("done transform")
     x = np.asarray(x)
