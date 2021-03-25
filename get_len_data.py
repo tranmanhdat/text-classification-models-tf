@@ -10,4 +10,4 @@ CHAR_MAX_LEN = 256
 
 print("Building dataset...")
 path_train = sys.argv[1]
-x, y, alphabet_size, le = build_char_dataset(path_train, CHAR_MAX_LEN)
+x, y, alphabet_size= build_char_dataset(path_train, CHAR_MAX_LEN)
