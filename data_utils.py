@@ -81,11 +81,8 @@ def build_dataset(path_file):
     for tmp in X:
         tmp  = tf.transform([tmp])
         tmp = tmp.toarray().tolist()
-        print(tmp)
-        print(tmp[0])
-        exit(0)
+        x.append(tmp[0])
     print("done transform")
-    x = np.asarray(x)
     return x, y, len(tf.get_feature_names())
 
 def batch_iter(inputs, outputs, batch_size, num_epochs):
