@@ -74,19 +74,15 @@ def build_dataset(path_file):
     if os.path.isfile("tfidf.pickle"):
         tf = pickle.load(open("tfidf.pickle", "rb"))
     else:
-        tf = TfidfVectorizer(min_df=0, max_df=1, max_features=5000,
+        tf = TfidfVectorizer(min_df=0, max_df=1, max_features=300,
                              sublinear_tf=True)
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
     x = []
-    i  = 0
     for tmp in X:
         tmp  = tf.transform([tmp])
         tmp = tmp.toarray().tolist()
         x.append(tmp[0])
-        i = i  +1
-        print(i)
-        print(sys.getsizeof(x))
     print("done transform")
     return x, y, len(tf.get_feature_names())
 
