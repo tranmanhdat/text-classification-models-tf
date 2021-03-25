@@ -60,6 +60,7 @@ def build_char_dataset(path_file, document_max_len):
     for i in range(0,5):
         print(len(x[i]))
         print(x[i])
+        print(sys.getsizeof(x[i]))
     #     print(y[i])
     return x, y, alphabet_size
 
@@ -84,6 +85,8 @@ def build_dataset(path_file):
         tmp  = tf.transform([tmp])
         tmp = tmp.toarray().tolist()
         x.append(tmp[0])
+        print(sys.getsizeof(tmp[0]))
+        exit(0)
     print("done transform")
     return x, y, len(tf.get_feature_names())
 
