@@ -7,6 +7,7 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import random
 import pickle
+import sys
 
 def read_text(path_file):
     X, y, labels= [], [], []
@@ -85,6 +86,7 @@ def build_dataset(path_file):
         x.append(tmp[0])
         i = i  +1
         print(i)
+        print(sys.getsizeof(x))
     print("done transform")
     return x, y, len(tf.get_feature_names())
 
