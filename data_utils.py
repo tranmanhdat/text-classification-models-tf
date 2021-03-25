@@ -86,6 +86,7 @@ def build_dataset(path_file):
         tmp = tmp.toarray().tolist()
         x.append(tmp[0])
         print(tmp[0])
+        print(len(tmp[0]))
         print(sys.getsizeof(tmp[0]))
         exit(0)
     print("done transform")
