@@ -78,6 +78,7 @@ def build_dataset(path_file):
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
     x = tf.transform(X)
+    print("done transform")
     x = x.todense()
     return x, y, len(tf.get_feature_names())
 
