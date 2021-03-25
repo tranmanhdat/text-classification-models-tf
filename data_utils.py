@@ -76,8 +76,7 @@ def build_dataset(path_file):
     if os.path.isfile("tfidf.pickle"):
         tf = pickle.load(open("tfidf.pickle", "rb"))
     else:
-        tf = TfidfVectorizer(min_df=0.01, max_df=0.95, max_features=None,
-                             sublinear_tf=True)
+        tf = TfidfVectorizer(ngram_range=(1, 2), max_df=0.5)
         tf.fit(X)
         pickle.dump(tf, open("tfidf.pickle", "wb"))
     x = []
