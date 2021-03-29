@@ -24,7 +24,8 @@ you need specify alphabet by yourself, or use my define alphabet for
 python 2_get_alphabet.py ../data_merger/train.txt ../data_merger/alphabet1.txt
 python 2_get_alphabet.py ../data_merger/test.txt ../data_merger/alphabet2.txt
 ```
-and merger by using 3_merger_alphabet.py or handmade
+and merger by using 3_merger_alphabet.py or handmade  
+To use my custom data, you can get it from [data_merger](https://drive.google.com/file/d/1sPz-7Rn7iViJ9mvQOZT0F9iKLkVcab61/view?usp=sharing)
 #### Train
 ```
 python train.py ../data_merger/train.txt
